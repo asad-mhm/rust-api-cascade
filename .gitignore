@@ -1,0 +1,21 @@
+# Rust build directory and executables
+/target/
+/debug/
+
+# Cargo lock file (remove this line if you're building an executable)
+Cargo.lock
+
+# Rustfmt backup files
+**/*.rs.bk
+
+# Debug symbols
+*.pdb
+*.exe
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Backup files
+*~
+*.swp

@@ -1,2 +1,2 @@
 # rust-cascade
-Rust implementation of real-time REST API callback system
+Rust implementation of real-time persistent REST API callback system

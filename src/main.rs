@@ -1,22 +1,24 @@
 // Main function
 
-use std::{thread::sleep, time::{Duration, SystemTime, UNIX_EPOCH}};
+mod routes;
+use crate::routes::handlers::health;
+use crate::routes::handlers::callback_get;
+use crate::routes::handlers::callback_post;
+use crate::routes::handlers::callback_delete;
 
-fn main() {
-    let start = SystemTime::now();
-    let time_since_epoch= start.duration_since(UNIX_EPOCH).expect("Time went backwards");
-    println!("{:?}", time_since_epoch);
-    let start = SystemTime::now();
-    let time_since_epoch= start.duration_since(UNIX_EPOCH).expect("Time went backwards");
-    sleep(Duration::from_secs(1));
-    println!("{:?}", time_since_epoch);
-    let start = SystemTime::now();
-    let time_since_epoch= start.duration_since(UNIX_EPOCH).expect("Time went backwards");
-    println!("{:?}", time_since_epoch);
-    let start = SystemTime::now();
-    let time_since_epoch= start.duration_since(UNIX_EPOCH).expect("Time went backwards");
-    println!("{:?}", time_since_epoch);
-    let start = SystemTime::now();
-    let time_since_epoch= start.duration_since(UNIX_EPOCH).expect("Time went backwards");
-    println!("{:?}", time_since_epoch);
+
+use actix_web::{App, HttpServer};
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new()
+            .service(health)
+            .service(callback_get)
+            .service(callback_post)
+            .service(callback_delete)
+    })
+    .bind(("127.0.0.1", 8080))?
+    .run()
+    .await
 }

@@ -1,6 +1,6 @@
 use actix_web::{delete, get, http::header::ContentType, post, web, HttpResponse, Responder};
-use mt_logger::*;
 use serde::{Deserialize, Serialize};
+use mt_logger::*;
 
 #[derive(Deserialize, Serialize)]
 struct Callback {

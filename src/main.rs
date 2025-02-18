@@ -1,8 +1,5 @@
 mod routes;
-use crate::routes::handlers::callback_delete;
-use crate::routes::handlers::callback_get;
-use crate::routes::handlers::callback_post;
-use crate::routes::handlers::health;
+use crate::routes::handlers::{callback_delete, callback_get, callback_post, health};
 
 use actix_web::{App, HttpServer};
 use mt_logger::*;

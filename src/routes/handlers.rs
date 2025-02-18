@@ -1,4 +1,5 @@
 use actix_web::{delete, get, http::header::ContentType, post, web, HttpResponse, Responder};
+use mt_logger::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
@@ -10,7 +11,9 @@ struct Callback {
 
 #[get("/health")]
 async fn health() -> impl Responder {
-    HttpResponse::Ok().body("Healthy")
+    mt_log!(Level::Info, "Request recieved at /health endpoint");
+    let response: HttpResponse = HttpResponse::Ok().body("Healthy");
+    response
 }
 
 #[get("/callback")]

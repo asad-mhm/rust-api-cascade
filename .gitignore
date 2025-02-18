@@ -1,6 +1,7 @@
 # Rust build directory and executables
 /target/
 /debug/
+/logs/
 
 # Cargo lock file (remove this line if you're building an executable)
 Cargo.lock

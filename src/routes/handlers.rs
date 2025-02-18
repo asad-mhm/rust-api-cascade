@@ -1,4 +1,4 @@
-use actix_web::{get, post, delete, web, HttpResponse, http::header::ContentType, Responder};
+use actix_web::{delete, get, http::header::ContentType, post, web, HttpResponse, Responder};
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
@@ -21,8 +21,8 @@ async fn callback_get() -> impl Responder {
 #[post("/callback")]
 async fn callback_post(callback: web::Json<Callback>) -> impl Responder {
     HttpResponse::Ok()
-    .content_type(ContentType::json())
-    .body("recieved")
+        .content_type(ContentType::json())
+        .body("recieved")
 }
 
 #[delete("/callback")]

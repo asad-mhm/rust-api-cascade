@@ -1,11 +1,10 @@
 // Main function
 
 mod routes;
-use crate::routes::handlers::health;
+use crate::routes::handlers::callback_delete;
 use crate::routes::handlers::callback_get;
 use crate::routes::handlers::callback_post;
-use crate::routes::handlers::callback_delete;
-
+use crate::routes::handlers::health;
 
 use actix_web::{App, HttpServer};
 
